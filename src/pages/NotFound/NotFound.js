@@ -4,10 +4,14 @@ import PropTypes from 'prop-types';
 import styles from './NotFound.scss';
 
 
-const NotFound = () => {
+let NotFoundPage = () => {
   return (
     <div className={styles.notFound} > NotFound </div>
   );
 };
 
-export default NotFound;
+if ( module.hot ) {
+  const { hot } = require('react-hot-loader');
+  NotFoundPage = hot(module)(NotFoundPage);
+}
+export default NotFoundPage;

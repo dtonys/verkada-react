@@ -12,6 +12,8 @@ export function extractState( globalState ) {
 
 const initialState = {
   count: 0,
+  loading: false,
+  data: null,
 };
 export default ( state = initialState, action ) => {
   switch ( action.type ) {
@@ -25,6 +27,25 @@ export default ( state = initialState, action ) => {
       return {
         ...state,
         count: state.count - 1,
+      };
+    }
+    case LOAD_DATA_STARTED: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case LOAD_DATA_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+      };
+    }
+    case LOAD_DATA_ERROR: {
+      return {
+        ...state,
+        loading: false,
       };
     }
     default: {

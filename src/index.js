@@ -6,7 +6,7 @@ import configureStore from 'redux/configureStore';
 import { Provider as ReduxStoreProvider } from 'react-redux';
 
 
-const store = configureStore({}, null, history);
+const store = configureStore({});
 
 if ( process.env.NODE_ENV !== 'production' ) {
   window.store = store;

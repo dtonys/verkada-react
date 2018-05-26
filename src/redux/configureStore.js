@@ -8,7 +8,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import routesMap from 'redux/routesMap';
 
 
-export default ( initialState = {}, request ) => {
+export default ( initialState = {} ) => {
   // setup router
   const history = createBrowserHistory();
   const {
