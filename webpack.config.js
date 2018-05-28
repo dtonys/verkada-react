@@ -11,6 +11,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const PATHS = {
   entry: path.resolve(__dirname, 'src', 'index.js'),
+  src: path.resolve(__dirname, 'src'),
   dist: path.resolve(__dirname, 'dist'),
 };
 const commonConfig = {
@@ -26,7 +27,7 @@ const commonConfig = {
     rules: [
       {
         test: /\.js/,
-        exclude: /node_modules/,
+        include: PATHS.src,
         use: {
           loader: 'babel-loader',
         },
