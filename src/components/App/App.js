@@ -40,9 +40,7 @@ class App extends Component {
   loadComponent = async () => {
     const { routeAction } = this.props;
     const componentPath = actionToComponentPath[routeAction];
-    console.log('loadComponent start');
     const component = await import(`../../pages/${componentPath}`);
-    console.log('loadComponent end');
     this.setState({
       PageComponent: component.default,
     });
