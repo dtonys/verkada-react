@@ -17,6 +17,7 @@ const PATHS = {
 const commonConfig = {
   entry: [
     'babel-polyfill',
+    'whatwg-fetch',
     PATHS.entry,
   ],
   output: {

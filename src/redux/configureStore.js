@@ -4,13 +4,12 @@ import createSagaMiddleware from 'redux-saga';
 import createRootReducer from 'redux/rootReducer';
 import rootSaga from 'redux/rootSaga';
 import { connectRoutes } from 'redux-first-router'
-import createBrowserHistory from 'history/createBrowserHistory';
 import routesMap from 'redux/routesMap';
 
 
-export default ( initialState = {} ) => {
+export default ( initialState = {}, history ) => {
   // setup router
-  const history = createBrowserHistory();
+
   const {
     reducer: routeReducer,
     middleware: routeMiddleware,
@@ -19,9 +18,8 @@ export default ( initialState = {} ) => {
 
 
   // TODO: Remove when adding tests
-  const __TEST__ = false;
   const middleware = [];
-  if ( process.env.NODE_ENV !== 'production' && !__TEST__) {
+  if ( process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
     const logger = createLogger();
     middleware.push( logger );
   }

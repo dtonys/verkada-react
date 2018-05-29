@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import fetch from 'unfetch';
 
 import styles from './Demo.scss';
 import { extractState as extractDemoState } from 'redux/demo/reducer';
@@ -10,6 +9,11 @@ import {
   INCREMENT_COUNTER_ASYNC, DECREMENT_COUNTER_ASYNC,
   LOAD_DATA_REQUESTED,
 } from 'redux/demo/actions';
+import {
+  Header,
+  Grid,
+  Button,
+} from 'semantic-ui-react';
 
 
 @connect(
@@ -69,29 +73,70 @@ class DemoPage extends Component {
 
     return (
       <div className={styles.demo} >
-        <div>DemoPage</div>
-        <div>{count}</div>
-        <button onClick={ this.increment } >
-          Increment
-        </button>
-        <button onClick={ this.decrement } >
-          Decrement
-        </button>
-        <button onClick={ this.incrementAsync } >
-          IncrementAsync
-        </button>
-        <button onClick={ this.decrementAsync } >
-          DecrementAsync
-        </button>
+        <Header as="h1" textAlign="center">
+          Demo Page
+        </Header>
+        <Header as="h3" textAlign="center" >
+          Counter
+        </Header>
+        <Header as="h3" textAlign="center" data-test="count">
+          {count}
+        </Header>
+        <br />
+        <Grid columns="equal" stackable>
+          <Grid.Column textAlign="center">
+            <Button onClick={ this.increment } data-test="increment" >
+              Increment
+            </Button>
+          </Grid.Column>
+          <Grid.Column textAlign="center">
+            <Button onClick={ this.decrement } data-test="decrement" >
+              Decrement
+            </Button>
+          </Grid.Column>
+          <Grid.Column textAlign="center">
+            <Button onClick={ this.incrementAsync } data-test="incrementAsync" >
+              IncrementAsync
+            </Button>
+          </Grid.Column>
+          <Grid.Column textAlign="center">
+            <Button onClick={ this.decrementAsync } data-test="decrementAsync" >
+              DecrementAsync
+            </Button>
+          </Grid.Column>
+        </Grid>
+        <br />
+        <br />
         <hr />
-        <button onClick={ this.loadDataViaSetState } >
-          Load Data via SetState
-        </button>
-        { data && <div> {JSON.stringify(data)} </div> }
-        <button onClick={ this.loadDataViaRedux } >
-          Load Data via Redux
-        </button>
-        { reduxData && <div> {JSON.stringify(reduxData)} </div> }
+        <br />
+        <Header as="h3" textAlign="center">
+          Load data
+        </Header>
+        <br />
+        <Grid columns="equal">
+          <Grid.Column textAlign="center">
+            <Button onClick={ this.loadDataViaSetState } data-test="loadDataViaSetStateBtn" >
+              Load Data via SetState
+            </Button>
+            <br /><br />
+            { data &&
+              <div style={{ textAlign: 'left' }} data-test="setStateData" >
+                {JSON.stringify(data, null, 2)}
+              </div>
+            }
+          </Grid.Column>
+          <Grid.Column textAlign="center">
+            <Button onClick={ this.loadDataViaRedux } data-test="loadDataViaReduxBtn" >
+              Load Data via Redux
+            </Button>
+            <br /><br />
+            { reduxData &&
+              <div style={{ textAlign: 'left' }} data-test="reduxData" >
+                {JSON.stringify(reduxData, null, 2)}
+              </div>
+            }
+          </Grid.Column>
+        </Grid>
       </div>
     );
   }

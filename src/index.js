@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom';
 import App from 'components/App/App';
 import configureStore from 'redux/configureStore';
 import { Provider as ReduxStoreProvider } from 'react-redux';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 
-const store = configureStore({});
+const history = createBrowserHistory();
+const store = configureStore({}, history);
 
 if ( process.env.NODE_ENV !== 'production' ) {
   window.store = store;

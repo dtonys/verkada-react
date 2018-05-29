@@ -1,4 +1,3 @@
-import fetch from 'unfetch';
 import querystring from 'querystring';
 import { put, call, fork, all } from 'redux-saga/effects';
 import { takeOne, delay } from 'redux/sagaHelpers';
@@ -33,7 +32,7 @@ ${querystring.stringify({ _limit: 5 })}`,
     yield put({ type: LOAD_DATA_SUCCESS, payload: data });
   }
   catch ( error ) {
-    console.log(error);
+    console.log(error); // eslint-disable-line
     yield put({ type: LOAD_DATA_ERROR });
   }
 }

@@ -1,1 +1,1 @@
-# react-playground
+# react-web-boilerplate
