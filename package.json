@@ -12,8 +12,8 @@
     "stop": "forever stop react-playground",
     "clean": "rimraf dist",
     "build-prod": "webpack --env production",
-    "test": "cross-env BABEL_ENV=test jest --config jest-config/jest.config.js",
-    "test:watch": "cross-env BABEL_ENV=test jest --config jest-config/jest.config.js --watch",
+    "test": "cross-env NODE_ENV=test jest --config jest-config/jest.config.js",
+    "test:watch": "cross-env NODE_ENV=test jest --config jest-config/jest.config.js --watch",
     "lint-js": "eslint -c .eslintrc.js ./src"
   },
   "dependencies": {
