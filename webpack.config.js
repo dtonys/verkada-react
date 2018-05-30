@@ -7,6 +7,7 @@ const cssnano = require('cssnano');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TimeFixPlugin = require('time-fix-plugin');
 
 
 const PATHS = {
@@ -99,6 +100,9 @@ const developmentConfig = {
       },
     ],
   },
+  plugins: [
+    new TimeFixPlugin(),
+  ],
   serve: serveConfig,
 };
 
