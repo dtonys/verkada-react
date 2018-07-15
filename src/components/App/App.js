@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import styles from './App.scss';
 import Link from 'redux-first-router-link';
 import { NOT_FOUND } from 'redux-first-router';
+import { hot } from 'react-hot-loader';
+
 import {
   ROUTE_HOME,
   ROUTE_DEMO,
@@ -89,9 +91,4 @@ class App extends Component {
   }
 }
 
-if ( module.hot ) {
-  const { hot } = require('react-hot-loader');
-  App = hot(module)(App);
-}
-
-export default App;
+export default hot(module)(App);

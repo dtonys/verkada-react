@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { hot } from 'react-hot-loader';
 
 import styles from './Demo.scss';
 import { extractState as extractDemoState } from 'redux/demo/reducer';
@@ -142,9 +143,4 @@ class DemoPage extends Component {
   }
 }
 
-if ( module.hot ) {
-  const { hot } = require('react-hot-loader');
-  DemoPage = hot(module)(DemoPage);
-}
-
-export default DemoPage;
+export default hot(module)(DemoPage);
