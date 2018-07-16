@@ -13,7 +13,6 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 dotenv.load({
   path: path.resolve(__dirname, '../.env'),
 });
-// const sendMail = require('./mailer.js');
 
 
 const app = express();

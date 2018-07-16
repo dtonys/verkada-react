@@ -6,10 +6,7 @@ import Link from 'redux-first-router-link';
 import { NOT_FOUND } from 'redux-first-router';
 import { hot } from 'react-hot-loader';
 
-import {
-  ROUTE_HOME,
-  ROUTE_DEMO,
-} from 'redux/routesMap';
+import { ROUTE_HOME } from 'redux/routesMap';
 import {
   Menu,
   Container,
@@ -18,7 +15,6 @@ import {
 
 const actionToComponentPath = {
   [ ROUTE_HOME ]: 'Home/Home',
-  [ ROUTE_DEMO ]: 'Demo/Demo',
   [ NOT_FOUND ]: 'NotFound/NotFound',
 };
 
@@ -71,16 +67,8 @@ class App extends Component {
         >
           <Container>
             <Menu.Item as={Link} to="/" header>
-              React Web Boilerplate
+              Verkada Command Center
             </Menu.Item>
-            <Menu.Menu position="right">
-              <Menu.Item as={Link} to="/">
-                Home
-              </Menu.Item>
-              <Menu.Item as={Link} to="/demo">
-                Demo
-              </Menu.Item>
-            </Menu.Menu>
           </Container>
         </Menu>
         <Container text className={ styles.app__container }>

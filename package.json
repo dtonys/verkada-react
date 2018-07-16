@@ -1,19 +1,17 @@
 {
-  "name": "react-web-boilerplate",
+  "name": "verkada-react",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:dtonys/react-web-boilerplate.git",
+  "repository": "git@github.com:dtonys/verkada-react.git",
   "author": "dtonys@gmail.com <dtonys@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --delay 2 --watch src/server.js --exec node src/server.js",
     "build": "npm-run-all clean build-prod",
-    "start": "cross-env NODE_ENV=production forever start --uid react-web-boilerplate --append src/server.js",
-    "stop": "forever stop react-web-boilerplate",
+    "start": "cross-env NODE_ENV=production forever start --uid verkada-react --append src/server.js",
+    "stop": "forever stop verkada-react",
     "clean": "rimraf dist",
     "build-prod": "webpack --env production",
-    "test": "cross-env NODE_ENV=test jest --config jest-config/jest.config.js",
-    "test:watch": "cross-env NODE_ENV=test jest --config jest-config/jest.config.js --watch",
     "lint-js": "eslint -c .eslintrc.js ./src"
   },
   "dependencies": {
@@ -52,6 +50,7 @@
     "jest": "^23.0.1",
     "jest-enzyme": "^6.0.1",
     "jest-fetch-mock": "^1.6.2",
+    "lodash": "^4.17.10",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "nodemailer": "^4.6.7",
